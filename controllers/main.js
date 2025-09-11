@@ -14,7 +14,7 @@ const Login = async (req, res) => {
     expiresIn: '30d',
   });
 
-  res.status(200).json({
+  res.status(201).json({
     msg: 'Login successful',
     token,
   });
@@ -23,7 +23,14 @@ const Login = async (req, res) => {
 
 
 const Dashboard = async (req, res) => {
-  res.status(200).json({ title: 'Dashboard Page',secret: Math.floor(Math.random()*100) });
+
+  // console.log(token)
+
+
+  res.status(200).json({ msg: `Hello ${req.user}`,secret: Math.floor(Math.random()*100) });
+
+
+  
 };
 
 module.exports = {
